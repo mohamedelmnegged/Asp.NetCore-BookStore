@@ -19,7 +19,7 @@ namespace BookStore
             var WebHost = CreateHostBuilder(args).Build();
             // after build the app create the migraion 
 
-            CreateMigration(WebHost);
+          //  CreateMigration(WebHost);
             // run the application 
             WebHost.Run();
         }
