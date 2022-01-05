@@ -2,13 +2,10 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = null; 
 }
 
-<h1>Details</h1>
-
 <div>
-    <h4>Book</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Id)
@@ -43,6 +40,8 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.Id }) |
-    <a asp-action="Index">Back to List</a>
+    <button class="btn btn-primary" onclick="ShowPopUp('@Url.Action("Edit" , "Book",null, Context.Request.Scheme )' +'/' + @Model.Id, 'Edit')">
+        Edit
+    </button> 
+    <button onclick="ClosePopUp()" class="btn btn-primary">Back to List</button>
 </div>

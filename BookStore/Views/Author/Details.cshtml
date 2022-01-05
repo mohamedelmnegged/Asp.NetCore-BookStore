@@ -2,9 +2,8 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = null;
 }
-
-<h1>Details</h1>
 
 <div>
     <h4>Author</h4>
@@ -25,6 +24,8 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id  }) |
-    <a asp-action="Index">Back to List</a>
+    <button class="btn btn-primary" onclick="ShowPopUp('@Url.Action("Edit", "Author",null, Context.Request.Scheme )' + '/' + @Model.Id, 'Edit @Model.Name ')">
+        Edit
+    </button>
+    <button class="btn btn-primary" onclick="ClosePopUp()"> Back To List</button>
 </div>

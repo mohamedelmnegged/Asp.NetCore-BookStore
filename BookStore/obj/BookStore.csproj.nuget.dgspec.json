@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Programming\\applying\\ASP.Net Core\\BookStore\\BookStore\\BookStore.csproj": {}
+    "F:\\Programming\\applying\\c#\\Asp.Net Core\\BookStore\\BookStore\\BookStore.csproj": {}
   },
   "projects": {
-    "F:\\Programming\\applying\\ASP.Net Core\\BookStore\\BookStore\\BookStore.csproj": {
+    "F:\\Programming\\applying\\c#\\Asp.Net Core\\BookStore\\BookStore\\BookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Programming\\applying\\ASP.Net Core\\BookStore\\BookStore\\BookStore.csproj",
+        "projectUniqueName": "F:\\Programming\\applying\\c#\\Asp.Net Core\\BookStore\\BookStore\\BookStore.csproj",
         "projectName": "BookStore",
-        "projectPath": "F:\\Programming\\applying\\ASP.Net Core\\BookStore\\BookStore\\BookStore.csproj",
+        "projectPath": "F:\\Programming\\applying\\c#\\Asp.Net Core\\BookStore\\BookStore\\BookStore.csproj",
         "packagesPath": "C:\\Users\\ELMAJD COMP\\.nuget\\packages\\",
-        "outputPath": "F:\\Programming\\applying\\ASP.Net Core\\BookStore\\BookStore\\obj\\",
+        "outputPath": "F:\\Programming\\applying\\c#\\Asp.Net Core\\BookStore\\BookStore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -98,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

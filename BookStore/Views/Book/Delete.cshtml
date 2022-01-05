@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = null; 
 }
 
 <h1>Delete</h1>
@@ -35,7 +36,7 @@
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt> 
+        </dt>
         <dd class="col-sm-10">
             <img class="img-thumbnail" style="width:100px;" src="@Html.DisplayFor(model => model.ImageUrl)" />
         </dd>
@@ -50,7 +51,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="ImageUrl" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-
-        <a asp-action="Index">Back to List</a>
     </form>
+    <button onclick="ClosePopUp()" class="btn btn-primary">Back to List</button>
 </div>

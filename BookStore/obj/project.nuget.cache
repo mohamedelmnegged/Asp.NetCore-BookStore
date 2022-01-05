@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yodVeJ4U8NmZaPx8LL3ruQGGP0EVLQX0SzCbd8gHGg4d62KrwjZHwc8gTO+eOXe+JYJc1k2/Ul5EGmnO+GF7KA==",
+  "dgSpecHash": "b4oD9M1Mee/Rb1EIoac+QHXHug1LLewTrW6gO2Q7dfloh8qLajLUCLMYrtrfRx22oMY7HfmzgaTH+wZx4aot9A==",
   "success": true,
-  "projectFilePath": "F:\\Programming\\applying\\ASP.Net Core\\BookStore\\BookStore\\BookStore.csproj",
+  "projectFilePath": "F:\\Programming\\applying\\c#\\Asp.Net Core\\BookStore\\BookStore\\BookStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ELMAJD COMP\\.nuget\\packages\\bootstrap\\5.0.2\\bootstrap.5.0.2.nupkg.sha512",
     "C:\\Users\\ELMAJD COMP\\.nuget\\packages\\bootstrap.sass\\5.0.2\\bootstrap.sass.5.0.2.nupkg.sha512",

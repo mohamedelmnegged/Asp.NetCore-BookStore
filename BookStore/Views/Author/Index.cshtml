@@ -7,7 +7,9 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <button class="btn btn-primary" onclick="ShowPopUp('@Url.Action("Create", "Author",null, Context.Request.Scheme )' , 'Create New Author')">
+        Create New
+    </button>
 </p>
 <table class="table">
     <thead>
@@ -31,9 +33,15 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
-                @Html.ActionLink("Details", "Details", new {  id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new {  id=item.Id  })
+                <button class="btn btn-primary" onclick="ShowPopUp('@Url.Action("Edit", "Author",null, Context.Request.Scheme )' + '/' + @item.Id, 'Edit @item.Name ')">
+                    Edit
+                </button>
+                <button class="btn btn-info" onclick="ShowPopUp('@Url.Action("Details", "Author",null, Context.Request.Scheme )' + '/' + @item.Id, 'Details of @item.Name ')">
+                    Details
+                </button>
+                <button class="btn btn-danger" onclick="ShowPopUp('@Url.Action("Delete", "Author",null, Context.Request.Scheme )' + '/' + @item.Id, 'Delete @item.Name ')">
+                    Delete
+                </button>
             </td>
         </tr>
 }

@@ -2,12 +2,9 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = null; 
 }
 
-<h1>Edit</h1>
-
-<h4>Author</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
@@ -30,6 +27,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <button class="btn btn-primary" onclick="ClosePopUp()"> Back To List</button>
 </div>
 

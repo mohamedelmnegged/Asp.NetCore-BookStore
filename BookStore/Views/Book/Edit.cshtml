@@ -2,12 +2,9 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = null;
 }
 
-<h1>Edit</h1>
-
-<h4>Book</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit" enctype="multipart/form-data">
@@ -57,6 +54,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <button onclick="ClosePopUp()" class="btn btn-primary">Back to List</button>
 </div>
 

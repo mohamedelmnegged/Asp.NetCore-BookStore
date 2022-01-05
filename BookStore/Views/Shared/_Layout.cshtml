@@ -13,9 +13,10 @@
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" /> 
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
 
     </environment>
+    
 </head>
 <body>
 
@@ -35,12 +36,37 @@
             <div class="navbar-collapse collapse">
             </div>
         </div>
-    </nav> 
-    <div class="container body-content">
-        <form class="d-flex" asp-controller="Book" asp-action="Search">
+    </nav>
+
+    <div class="modal" tabindex="-1" id="form-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container body-content" id="main">
+        @*<form class="d-flex" asp-controller="Book" asp-action="Search">
             <button class="btn btn-outline-success" type="submit" style="float:right">Search</button>
-            <input class="form-control me-2" type="search" name="value" placeholder="Search For Book" aria-label="Search" style="float:right">
-        </form>
+            <input  class="form-control me-2" type="search" name="value" placeholder="Search For Book" aria-label="Search" style="float:right">
+        </form>*@
+        <button class="btn btn-outline-success" type="submit" style="float:right"
+                onclick="searchResult('@Url.Action("Search","Book", null, Context.Request.Scheme)')">
+            Search
+        </button>
+        <input class="form-control me-2" type="search" name="value" id="LiveSearch"
+               placeholder="Search For Book" aria-label="Search" style="float:right">
+
         @RenderBody()
         <hr />
         <footer>
@@ -67,8 +93,9 @@
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
-
+    @*<script src="~/js/site.js" asp-append-version="true"></script>*@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
