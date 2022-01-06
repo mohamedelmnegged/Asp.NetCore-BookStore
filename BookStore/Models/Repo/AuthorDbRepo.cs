@@ -43,7 +43,11 @@ namespace BookStore.Models.Repo
         }
 
         public IList<Author> Search(string value)
-        {
+        { 
+            if(value == null)
+            {
+                return list(); 
+            }
             var searched = _db.Authors.Where(a => a.Name.Contains(value)).ToList();
 
             return searched;

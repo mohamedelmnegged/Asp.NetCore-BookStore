@@ -6,44 +6,11 @@
 
 <h1>Index</h1>
 
-<p>
-    <button class="btn btn-primary" onclick="ShowPopUp('@Url.Action("Create", "Author",null, Context.Request.Scheme )' , 'Create New Author')">
-        Create New
-    </button>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <button class="btn btn-primary" onclick="ShowPopUp('@Url.Action("Edit", "Author",null, Context.Request.Scheme )' + '/' + @item.Id, 'Edit @item.Name ')">
-                    Edit
-                </button>
-                <button class="btn btn-info" onclick="ShowPopUp('@Url.Action("Details", "Author",null, Context.Request.Scheme )' + '/' + @item.Id, 'Details of @item.Name ')">
-                    Details
-                </button>
-                <button class="btn btn-danger" onclick="ShowPopUp('@Url.Action("Delete", "Author",null, Context.Request.Scheme )' + '/' + @item.Id, 'Delete @item.Name ')">
-                    Delete
-                </button>
-            </td>
-        </tr>
+@Html.Partial("_Author", Model) 
+
+@section Search{
+    <input class="form-control me-2" type="search" name="value" id="LiveSearch"
+           onkeyup="searchResult('@Url.Action("Search","Author", null, Context.Request.Scheme)')"
+           placeholder="Search For Author" aria-label="Search" style="float:right">
+
 }
-    </tbody>
-</table>

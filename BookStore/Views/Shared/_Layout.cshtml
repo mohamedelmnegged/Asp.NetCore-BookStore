@@ -60,14 +60,10 @@
             <button class="btn btn-outline-success" type="submit" style="float:right">Search</button>
             <input  class="form-control me-2" type="search" name="value" placeholder="Search For Book" aria-label="Search" style="float:right">
         </form>*@
-        <button class="btn btn-outline-success" type="submit" style="float:right"
-                onclick="searchResult('@Url.Action("Search","Book", null, Context.Request.Scheme)')">
-            Search
-        </button>
-        <input class="form-control me-2" type="search" name="value" id="LiveSearch"
-               placeholder="Search For Book" aria-label="Search" style="float:right">
-
-        @RenderBody()
+        @RenderSection("Search", required:false)
+        <div id="render">
+            @RenderBody()
+        </div>
         <hr />
         <footer>
             <p>&copy; 2019 - Book Store </p>

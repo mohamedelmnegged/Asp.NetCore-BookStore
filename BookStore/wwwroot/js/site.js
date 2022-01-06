@@ -26,10 +26,33 @@ searchResult = function (URL) {
         url: URL,
         data: { value: searched},
         success: function (result) {
-            $('#main').html( result) 
+            $('#render').html( result) 
            console.log('Success Search')
-
+        },
+        error: function (er) {
+            console.log(er)
         }
     })
     
 }
+
+AjaxSubmitForm = form => {
+    $.ajax({
+        type: 'POST',
+        url: form.action,
+        data: new FormData(form),
+        contentType: false,
+        processData: false,
+        success: function (result) {
+            if (result.isValid) {
+                console.log('here');
+            } else {
+                $('#form-modal .modal-body').html(result);
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
+}
+

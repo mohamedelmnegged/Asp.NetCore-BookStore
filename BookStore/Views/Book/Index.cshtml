@@ -6,64 +6,13 @@
 
 <h1>Index</h1>
 
-<p>
-    <button class="btn btn-primary" onclick="ShowPopUp('@Url.Action("Create", "Book",null, Context.Request.Scheme )', 'New Book')">Create New</button>
-</p>
-<table class="table"  >
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PublishDay)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
-            </th>
-            <th>
-                Actions 
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)    
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author.Name)    
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PublishDay)
-            </td>
-            <td>
-              <img class="img-thumbnail" alt="No Image" style="width:64px; height:44px" src="@Html.DisplayFor(modelItem => item.ImageUrl) " />
-            </td>
-            <td>
-                <button class="btn btn-primary" onclick="ShowPopUp('@Url.Action("Edit", "Book",null, Context.Request.Scheme )' + '/' + @item.Id, 'Edit @item.Name ')"> 
-                    Edit 
-                </button>
-                <button class="btn btn-info" onclick="ShowPopUp('@Url.Action("Details", "Book", null, Context.Request.Scheme)' + '/' + @item.Id, 'Details @item.Name')" >
-                    Details
-                </button> 
-                <button class="btn btn-danger" onclick="ShowPopUp('@Url.Action("Delete", "Book", null, Context.Request.Scheme)' + '/' + @item.Id, 'Delete @item.Name')" >
-                    Delete
-                </button> 
 
-            </td>
-        </tr>
+
+@Html.Partial("_addBook", Model);
+
+@section Search{
+    <input class="form-control me-2" type="search" name="value" id="LiveSearch"
+           onkeyup="searchResult('@Url.Action("Search","Book", null, Context.Request.Scheme)')"
+           placeholder="Search For Book" aria-label="Search" style="float:right">
+
 }
-    </tbody>
-</table>

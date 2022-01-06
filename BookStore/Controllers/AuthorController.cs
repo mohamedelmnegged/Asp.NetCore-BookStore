@@ -126,6 +126,12 @@ namespace BookStore.Controllers
                 return View(author);
             }
           
+        } 
+
+        public ActionResult Search(string value)
+        {
+            var searched = _author.Search(value);
+            return PartialView("_Author", searched);
         }
     }
 }

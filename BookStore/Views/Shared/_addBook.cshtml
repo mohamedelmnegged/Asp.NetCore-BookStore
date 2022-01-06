@@ -1,105 +1,67 @@
-﻿@page
-@model BookStore.ViewModels.AuthBookViewModel
-@{
+﻿@model IEnumerable<BookStore.Models.Book>
+
+@{ 
+   
 }
-<div class="modal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"> @ViewData["ModalTitle"]</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
+<p>
+    <button class="btn btn-primary" onclick="ShowPopUp('@Url.Action("Create", "Book",null, Context.Request.Scheme )', 'New Book')">Create New</button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublishDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th>
+                Actions
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublishDay)
+                </td>
+                <td>
+                    <img class="img-thumbnail" alt="No Image" style="width:64px; height:44px" src="@Html.DisplayFor(modelItem => item.ImageUrl) " />
+                </td>
+                <td>
+                    <button class="btn btn-primary" onclick="ShowPopUp('@Url.Action("Edit", "Book",null, Context.Request.Scheme )' + '/' + @item.Id, 'Edit @item.Name ')">
+                        Edit
+                    </button>
+                    <button class="btn btn-info" onclick="ShowPopUp('@Url.Action("Details", "Book", null, Context.Request.Scheme)' + '/' + @item.Id, 'Details @item.Name')">
+                        Details
+                    </button>
+                    <button class="btn btn-danger" onclick="ShowPopUp('@Url.Action("Delete", "Book", null, Context.Request.Scheme)' + '/' + @item.Id, 'Delete @item.Name')">
+                        Delete
+                    </button>
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <form asp-action="Create" enctype="multipart/form-data">
-                            @if (ViewBag.Message != null)
-                            {
-                                <div class="alert alert-danger"> @ViewBag.Message</div>
-                            }
-                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                            <div class="form-group">
-                                <label asp-for="Id" class="control-label"></label>
-                                <input asp-for="Id" class="form-control" type="hidden" />
-                                <span asp-validation-for="Id" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Name" class="control-label"></label>
-                                <input asp-for="Name" class="form-control" />
-                                <span asp-validation-for="Name" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="PublishDay" class="control-label"></label>
-                                <input asp-for="PublishDay" class="form-control" />
-                                <span asp-validation-for="PublishDay" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="File" class="control-label"></label>
-                                <input type="file" name="File" asp-for="File" class="form-control" />
-                                <span asp-validation-for="File" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="AuthorId" class="control-label"></label>
-                                <select asp-for="AuthorId" class="form-control" asp-items="@(new SelectList(Model.Authors,  "Id", "Name"))">
-                                </select>
-                                <span asp-validation-for="AuthorId" class="text-danger"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="submit" value="Create" class="btn btn-primary" />
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                
-            </div>
-        </div>
-    </div>
-</div>  
-
-
-@*<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
-            @if (ViewBag.Message != null)
-            {
-                <div class="alert alert-danger"> @ViewBag.Message</div>
-            }
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" type="hidden" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PublishDay" class="control-label"></label>
-                <input asp-for="PublishDay" class="form-control" />
-                <span asp-validation-for="PublishDay" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="File" class="control-label"></label>
-                <input type="file" name="File" asp-for="File" class="form-control" />
-                <span asp-validation-for="File" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AuthorId" class="control-label"></label>
-                <select asp-for="AuthorId" class="form-control" asp-items="@(new SelectList(Model.Authors,  "Id", "Name"))">
-                </select>
-                <span asp-validation-for="AuthorId" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

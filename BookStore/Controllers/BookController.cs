@@ -222,9 +222,11 @@ namespace BookStore.Controllers
         
         //search for books and return it to index page 
         public ActionResult Search(string value)
-        {
+        {   
+
             var searched = _book.Search(value);
-            return View("Index", searched); 
+            return PartialView("_addBook", searched); 
+//            return View("Index", searched); 
         }
     }
 }

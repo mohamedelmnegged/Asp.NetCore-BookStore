@@ -313,3 +313,4 @@ F:\Programming\applying\c#\Asp.Net Core\BookStore\BookStore\obj\Debug\net5.0\ref
 F:\Programming\applying\c#\Asp.Net Core\BookStore\BookStore\obj\Debug\net5.0\BookStore.pdb
 F:\Programming\applying\c#\Asp.Net Core\BookStore\BookStore\obj\Debug\net5.0\BookStore.genruntimeconfig.cache
 F:\Programming\applying\c#\Asp.Net Core\BookStore\BookStore\obj\Debug\net5.0\Razor\Views\Shared\_addBook.cshtml.g.cs
+F:\Programming\applying\c#\Asp.Net Core\BookStore\BookStore\obj\Debug\net5.0\Razor\Views\Shared\_Author.cshtml.g.cs
