@@ -202,8 +202,11 @@ namespace BookStore.Controllers
                 string uploads = Path.Combine(_hosting.WebRootPath, "images"); //  get the path to put image 
                 fileName = model.File.FileName; // get the name of the image 
                 string fullpath = Path.Combine(uploads, fileName); // make the full path for the image  
-                model.File.CopyTo(new FileStream(fullpath, FileMode.Create)); // get the image from its fill to our project file 
-                
+               // get the image from its fill to our project file 
+                using(var stream = new FileStream(fullpath, FileMode.Create))
+                {
+                    model.File.CopyTo(stream);
+                }
             }
 
             return fileName; 
